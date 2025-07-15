@@ -150,15 +150,6 @@ DataCon2025_DrugDiscovery/
 │   ├── src/
 │   └── main.py
 │
-├── data/                       # << ОБЩАЯ папка для входных данных
-│   ├── receptor/
-│   └── smiles_inputs/
-│
-├── results/                    # << ОБЩАЯ папка для всех результатов
-│   ├── 1_rl_model_outputs/
-│   ├── 2_diffsbdd_outputs/
-│   └── 3_docking_outputs/
-│
 ├── config.py                   # << ОБЩИЙ файл конфигурации для всех
 ├── requirements.txt
 └── README.md
