@@ -27,16 +27,22 @@ DIFFSBDD_CONFIG = {
     "IKKB_MODEL_PATH": os.path.join(RL_CONFIG["MODELS_DIR"], "ikkb_activity_model.pkl"),
 }
 
+
 # --- 3. Настройки для Докинга (Приложение 3) ---
 DOCKING_CONFIG = {
-    # ВАЖНО: Укажите здесь, какой CSV-файл докировать
-    "INPUT_CSV": RL_CONFIG["OUTPUT_CSV"], # Докируем результат RL модели
-    # "INPUT_CSV": DIFFSBDD_CONFIG["OUTPUT_CSV"], # Или докируем результат DiffSBDD
+    # ВАЖНО: Укажите здесь, какие CSV-файлы объединять и докировать
+    "INPUT_CSV_FILES": [
+        os.path.join(RESULTS_DIR, "1_rl_model_outputs", "final_molecules.csv"),
+        os.path.join(RESULTS_DIR, "2_diffsbdd_outputs", "diffsbdd_evaluated.csv"),
+    ],
+    # Имя файла, куда будут сохранены объединенные и уникальные SMILES
+    "COMBINED_INPUT_CSV": os.path.join(DATA_DIR, "smiles_inputs", "combined_for_docking.csv"),
 
     "PDB_ID": "4L7B",
     "RECEPTOR_DIR": os.path.join(DATA_DIR, "receptor"),
     "PREPARED_LIGANDS_DIR": os.path.join(RESULTS_DIR, "3_docking_outputs", "prepared_ligands"),
     "DOCKING_RESULTS_DIR": os.path.join(RESULTS_DIR, "3_docking_outputs", "docking_results"),
+    "ANALYSIS_RESULTS_DIR": os.path.join(RESULTS_DIR, "3_docking_outputs", "analysis_plots"), # Папка для графиков
     
     # Настройки докинг-бокса
     "REF_LIGAND_CHAIN": "B",
